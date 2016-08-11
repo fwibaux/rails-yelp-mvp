@@ -1,10 +1,23 @@
-<h1><%= @restaurant.name %></h1>
-<p>created at : <%= (@restaurant.created_at).strftime("%d/%m/%Y - at %H:%M") %></p>
-<p>Address : <%= @restaurant.address %></p>
-<p>Telephone :<%= @restaurant.phone_number %></p>
-  <% if @restaurant.updated_at == @restaurant.created_at %>
-    <p>not updated yet</p>
-  <% else %>
-    <p>updated at: <%=(@restaurant.updated_at).strftime("%d/%m/%Y - at %H:%M")%></p>
-  <% end %>
-<p><%= link_to "Back to list", restaurants_path %></p>
+<div class="container text-center padded">
+  <div class="row">
+    <h1><%= @restaurant.name %></h1>
+    <p>created at : <%= (@restaurant.created_at).strftime("%d/%m/%Y - at %H:%M") %></p>
+    <p>Address : <%= @restaurant.address %></p>
+    <p>Telephone :<%= @restaurant.phone_number %></p>
+      <% if @restaurant.updated_at == @restaurant.created_at %>
+        <p>not updated yet</p>
+      <% else %>
+        <p>updated at: <%=(@restaurant.updated_at).strftime("%d/%m/%Y - at %H:%M")%></p>
+      <% end %>
+    </div>
+    <div class="row padded">
+      <p><%= link_to "Back to list", restaurants_path, class: "btn btn-primary" %>
+         <%= link_to "Update", edit_restaurant_path(@restaurant), class: "btn btn-primary" %>
+         <%= link_to "Delete", restaurant_path(@restaurant),class:"btn btn-primary", method: :delete%>
+          <%= link_to "Add review", restaurant_path(@restaurant),class:"btn btn-danger", method: :delete%>
+
+
+         </p>
+    </div>
+</div>
+
